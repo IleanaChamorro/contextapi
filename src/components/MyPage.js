@@ -1,9 +1,14 @@
 import React from 'react'
+import Header from './Header'
+import Main from './Main'
+import Footer from './Footer'
 
 const MyPage = () => {
   return (
-    <div>
-        <h2>Mi Pagina</h2>
+    <div className='my-page'>
+        <Header/>
+        <Main/>
+        <Footer/>
     </div>
   )
 }
