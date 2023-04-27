@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({theme, texts}) => {
   return (
-    <footer>
-        <h4>Mi pie de pagina</h4>
+    <footer className={theme}>
+        <h4>{texts.footerTitle}</h4>
     </footer>
   )
 }
