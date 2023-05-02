@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 const initialTheme = "light";
 const initialLanguage = "es";
+const initialAuth = null;
 
 const translations = {
     es: {
@@ -27,7 +28,7 @@ const translations = {
         headerDark: "Dark",
         buttonLogin: "Login",
         buttonLogout: "Logout",
-        mainWelcome: "Welcome",
+        mainWelcome: "Welcome Guest",
         mainHello: "Hello User",
         mainContent: "My main content",
         footerTitle: "My footer",
@@ -38,6 +39,8 @@ const MyPage = () => {
     const [theme, setTheme] = useState(initialTheme);
     const [language, setLanguage] = useState(initialLanguage);
     const [texts, setTexts] = useState(translations[language]);
+    const [auth, setAuth] = useState(initialAuth);
+
 
     const handleTheme = (e) => {
         console.log(e.target.value);
@@ -60,10 +63,24 @@ const MyPage = () => {
         };
     };
 
+    const handleAuth = (e) => {
+        if(auth){
+            setAuth(null);
+        }else{
+            setAuth(true);
+        }
+    };
+
     return (
         <div className='my-page'>
-            <Header theme={theme} handleTheme={handleTheme} texts={texts} handleLanguage={handleLanguage}/>
-            <Main theme={theme} texts={texts}/>
+            <Header theme={theme} 
+            handleTheme={handleTheme} 
+            texts={texts} 
+            handleLanguage={handleLanguage}
+            auth={auth}
+            handleAuth={handleAuth}
+            />
+            <Main theme={theme} texts={texts} auth={auth}/>
             <Footer texts={texts}/>
         </div>
   )
