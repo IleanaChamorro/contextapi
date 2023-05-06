@@ -3,8 +3,8 @@ import HeaderContext from './Header'
 import MainContext from './Main'
 import FooterContext from './Footer'
 import { useState } from 'react'
+import { ThemeProvider } from '../context/ThemeContext'
 
-const initialTheme = "light";
 const initialLanguage = "es";
 const initialAuth = null;
 
@@ -36,20 +36,10 @@ const translations = {
 };
 
 const MyPage = () => {
-    const [theme, setTheme] = useState(initialTheme);
     const [language, setLanguage] = useState(initialLanguage);
     const [texts, setTexts] = useState(translations[language]);
     const [auth, setAuth] = useState(initialAuth);
 
-
-    const handleTheme = (e) => {
-        console.log(e.target.value);
-        if(e.target.value === "light"){
-            setTheme("light");
-        }else{
-            setTheme("dark");
-        }
-    };
 
     const handleLanguage = (e) => {
         console.log(e.target.value);
@@ -73,15 +63,16 @@ const MyPage = () => {
 
     return (
         <div className='my-page'>
-            <HeaderContext theme={theme} 
-            handleTheme={handleTheme} 
+            <ThemeProvider>
+            <HeaderContext  
             texts={texts} 
             handleLanguage={handleLanguage}
             auth={auth}
             handleAuth={handleAuth}
             />
-            <MainContext theme={theme} texts={texts} auth={auth}/>
+            <MainContext texts={texts} auth={auth}/>
             <FooterContext texts={texts}/>
+            </ThemeProvider>
         </div>
   )
 }

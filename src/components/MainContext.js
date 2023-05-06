@@ -1,6 +1,8 @@
 import React from 'react'
+import ThemeContext from '../context/ThemeContext';
+const MainContext = ({texts, auth}) => {
+  const {theme} = useContext(ThemeContext);
 
-const MainContext = ({theme, texts, auth}) => {
   return (
     <main className={theme}>
       {auth ? <p>{texts.mainHello}</p> :  <p>{texts.mainWelcome}</p>}

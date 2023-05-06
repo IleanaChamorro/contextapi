@@ -1,6 +1,9 @@
 import React from 'react'
+import ThemeContext from '../context/ThemeContext';
 
-const FooterContext = ({theme, texts}) => {
+const FooterContext = ({ texts }) => {
+  const {theme} = useContext(ThemeContext);
+
   return (
     <footer className={theme}>
         <h4>{texts.footerTitle}</h4>

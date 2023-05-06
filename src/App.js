@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import MyPage from './components/MyPage';
+import MyPageContext from './components/MyPageContext';
+
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       rel="noferrer">
         Documentación
       </a>
+      <hr/>
+      <MyPageContext/>
+      <hr/>
       <MyPage/>
     </div>
   );
