@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext';
-const MainContext = ({texts, auth}) => {
+import LanguageContext from '../context/LanguageContext';
+const MainContext = ({auth}) => {
   const {theme} = useContext(ThemeContext);
+  const {texts} = useContext(LanguageContext);
 
   return (
     <main className={theme}>
