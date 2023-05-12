@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
 
 const initailForm = {
   name: "",
@@ -6,7 +7,9 @@ const initailForm = {
   id: null,
 };
 
-const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
+const CrudForm = () => {
+  const {createData, updateData, dataToEdit, setDataToEdit} = useContext(CrudContext);
+  
   const [form, setForm] = useState(initailForm);
 
   useEffect(() => {

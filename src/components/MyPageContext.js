@@ -1,28 +1,24 @@
-import React from 'react'
-import HeaderContext from './Header'
-import MainContext from './Main'
-import FooterContext from './Footer'
-import { ThemeProvider } from '../context/ThemeContext'
-import { LanguageProvider } from '../context/LanguageContext'
-import { AuthProvider } from '../context/AuthContext'
+import { AuthProvider } from "../context/AuthContext";
+import { LanguageProvider } from "../context/LanguageContext";
+import { ThemeProvider } from "../context/ThemeContext";
+import FooterContext from "./FooterContext";
+import HeaderContext from "./HeaderContext";
+import MainContext from "./MainContext";
 
+const MyPageContext = () => {
+  return (
+    <div className="my-page">
+      <AuthProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <HeaderContext />
+            <MainContext />
+            <FooterContext />
+          </LanguageProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </div>
+  );
+};
 
-
-const MyPage = () => {
-   
-    return (
-        <div className='my-page'>
-            <AuthProvider>
-                <ThemeProvider>
-                    <LanguageProvider>
-                        <HeaderContext />
-                        <MainContext/>
-                        <FooterContext/>
-                    </LanguageProvider>
-                </ThemeProvider>
-            </AuthProvider>
-        </div>
-  )
-}
-
-export default MyPage
+export default MyPageContext;

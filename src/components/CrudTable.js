@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import CrudTableRow from "./CrudTableRow";
 
-const CrudTable = ({ data, setDataToEdit, deleteData }) => {
+const CrudTable = () => {
+  const {db: data} = useContext(CrudContext);
   return (
     <div>
       <h3>Tabla de Datos</h3>
@@ -19,8 +20,6 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
               <CrudTableRow
                 key={el.id}
                 el={el}
-                setDataToEdit={setDataToEdit}
-                deleteData={deleteData}
               />
             ))
           ) : (
